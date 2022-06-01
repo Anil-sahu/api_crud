@@ -159,7 +159,8 @@ form {
 }
 
 .box-heading {
-
+    display: flex;
+    flex-direction: column;
     background-color: #002838;
     text-align: center;
     padding: 20px;
@@ -167,7 +168,7 @@ form {
     font-weight: bold;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
-
+    justify-content: space-between;
 
 }
 
@@ -242,35 +243,31 @@ table {
 td a {
     text-decoration: none;
     background-color: transparent;
+    text-align: center;
 }
 
-.fa-edit {
-
-    background-color: #002838;
-    color: #68f1b8;
-
-
-}
-
-.fa-trash {
-
-    background-color: #002838;
-    color: red;
-
-}
 
 .fa-edit,
+
 .fa-trash {
     padding: 5px;
     border-radius: 5px;
+    background-color: #002838;
     color: white;
 }
 
-.fa-edit:hover,
+.fa-edit:hover {
+    color: #68f1b8;
+    /* box-shadow: 1px 1px 3px rgb(255, 255, 255); */
+    border: 1px solid #68f1b8;
+    padding: 4px;
+
+}
+
 .fa-trash:hover {
-    color: rgb(0, 217, 255);
-    box-shadow: 1px 1px 3px rgb(255, 255, 255);
-    border: 1px solid white;
+    color: rgb(255, 102, 0);
+    /* box-shadow: 1px 1px 3px rgb(255, 255, 255); */
+    border: 1px solid rgb(255, 102, 0);
     padding: 4px;
 }
 

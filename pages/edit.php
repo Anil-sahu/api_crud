@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bootstrap demo</title>
+  <title>CRUD</title>
   <link rel="stylesheet" href="../style/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
@@ -24,14 +24,15 @@
 
     <div class="container">
       <div class="box-heading">
-        <h1 style="color:#03f892;">Welcome</h1>
-
-        <img src="../image/std.svg" />
-        <p>Fill all details of student and add </p>
+        <h1 style="color:#03f892;">Update</h1>
+        <hr>
+        <img src="../image/std.svg" style="width: 70%;" />
+        <hr>
+        <p>Correct student details and press update button</p>
       </div>
-      <br /><br />
+
       <form action="" method="POST">
-        <div class="subhead" style="background-color:#002838;color:#03f892;font-size:30px;font-family:Verdana, Geneva, Tahoma, sans-serif;padding:10px 20px">Add student</div>
+        <div class="subhead">Update info</div>
         <hr style="margin-bottom:20px;border:1px solid #03f892;">
 
         <?php
