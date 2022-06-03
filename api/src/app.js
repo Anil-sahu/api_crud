@@ -86,6 +86,25 @@ app.put("/api/student/:id", async (req, res) => {
 
 
 
+//delete student
+app.delete("/api/student/:id", async (req, res) => {
+
+    try {
+        const { id } = req.params;
+
+        const deleteQuery = "DELETE FROM student WHERE id=?";
+        const sql = await pool.query(deleteQuery, [id]);
+        res.json(sql);
+        console.log("delete successfull");
+
+    } catch (error) {
+        console.error(error);
+    }
+});
+
+
+
+
 app.listen(port, () => {
     console.log("my server is running at", port)
 });
