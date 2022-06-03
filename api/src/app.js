@@ -56,6 +56,36 @@ app.get("/api/student/:id", async (req, res) => {
 });
 
 
+
+
+
+
+//update stuendt detail
+app.put("/api/student/:id", async (req, res) => {
+
+    try {
+        const { id } = req.params;
+        var mybody = req.body;
+        // var { name } = mybody.name;
+        // var { mobile } = mybody.mobile;
+        // var { email } = mybody.email;
+        // var { branch } = mybody.branch;
+        // var { fee } = mybody.fee;
+
+        const updateQuery = "UPDATE student SET ? WHERE id=?";
+        const sql = await pool.query(updateQuery, [mybody, id]);
+        res.json(sql);
+        console.log(mybody);
+
+    } catch (error) {
+        console.error(error);
+
+    }
+});
+
+
+
+
 app.listen(port, () => {
     console.log("my server is running at", port)
 });
