@@ -8,7 +8,7 @@ const port = process.env.port || 3000;
 app.use(cors());
 app.use(express.json());
 
-//create post
+//start--------------------------------create post
 app.post("/api/student", async (req, res) => {
     try {
         var mybody = req.body;
@@ -20,15 +20,15 @@ app.post("/api/student", async (req, res) => {
         var sqlInsert = 'INSERT INTO student(name,mobile,email,branch,fee) VALUE (?,?,?,?,?)';
         var sql = await pool.query(sqlInsert, [name, mobile, email, branch, fee],);
         res.json(sql);
-        console.log(mybody);
+        console.log("student have add successful with deatials:", mybody);
     } catch (error) {
         console.error(error)
     }
 });
+/*-----------------------------post method compled-----------end*/
 
 
-
-// get all students
+/*start----------------------- get all students---------------------*/
 
 app.get("/api", async (req, res) => {
     try {
@@ -40,29 +40,31 @@ app.get("/api", async (req, res) => {
         console.error(error);
     }
 });
+/*--------------------------get method completed------------end*/
 
 
 
-// get a student
+
+/*start----------------------- get a student---------------------------*/
 app.get("/api/student/:id", async (req, res) => {
     try {
         const { id } = req.params;
         var selectStuedent = "SELECT * FROM  student WHERE id= ?";
         var sql = await pool.query(selectStuedent, [id]);
         res.json(sql[0]);
+        console.log("student data getting whith id :", id)
     } catch (error) {
         console.error(error);
     }
 });
 
+/*------------------get method have completed-----------------end*/
 
 
 
 
-
-//update stuendt detail
+/*start--------------------update stuendt detail------------------*/
 app.put("/api/student/:id", async (req, res) => {
-
     try {
         const { id } = req.params;
         var mybody = req.body;
@@ -71,37 +73,33 @@ app.put("/api/student/:id", async (req, res) => {
         // var { email } = mybody.email;
         // var { branch } = mybody.branch;
         // var { fee } = mybody.fee;
-
         const updateQuery = "UPDATE student SET ? WHERE id=?";
         const sql = await pool.query(updateQuery, [mybody, id]);
         res.json(sql);
-        console.log(mybody);
-
+        console.log("student data are update who have id :", id);
     } catch (error) {
         console.error(error);
-
     }
 });
+/*-------------------- put method have completed--------------end*/
 
 
 
 
-//delete student
+
+/*------------------------delete student----------------------*/
 app.delete("/api/student/:id", async (req, res) => {
-
     try {
         const { id } = req.params;
-
         const deleteQuery = "DELETE FROM student WHERE id=?";
         const sql = await pool.query(deleteQuery, [id]);
         res.json(sql);
-        console.log("delete successfull");
-
+        console.log("student have delete successfull with id :", id);
     } catch (error) {
         console.error(error);
     }
 });
-
+/*-------------------------delete method completed---------------end*/
 
 
 
