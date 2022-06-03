@@ -30,8 +30,8 @@
         <th>Email</th>
         <th>Branch</th>
         <th>Fee</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th>Action</th>
+
       </tr>
       <?php
       include '../db/dbcon.php';
@@ -52,8 +52,7 @@
           <td>
 
             <a href="edit.php?id=<?php echo $result['id']; ?>" class="mod"><i class="fa fa-edit"></i></a>
-          </td>
-          <td>
+
             <a href="delete.php?id=<?php echo $result['id']; ?>" class="mod"><i class="fa fa-trash"></i></a>
           </td>
         </tr>
