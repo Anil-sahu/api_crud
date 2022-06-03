@@ -42,6 +42,20 @@ app.get("/api", async (req, res) => {
 });
 
 
+
+// get a student
+app.get("/api/student/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        var selectStuedent = "SELECT * FROM  student WHERE id= ?";
+        var sql = await pool.query(selectStuedent, [id]);
+        res.json(sql[0]);
+    } catch (error) {
+        console.error(error);
+    }
+});
+
+
 app.listen(port, () => {
     console.log("my server is running at", port)
 });
