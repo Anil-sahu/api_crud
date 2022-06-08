@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td id="td"></td>
+          <td id="result"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      var td = document.getElementById("td");
+      var clicked = 0;
+
+      td.className = "editrow";
+
+      var edit_btn = document.createElement("button");
+      edit_btn.innerText = "Edit";
+      edit_btn.className = "edit_word";
+
+      td.appendChild(edit_btn);
+
+      edit_btn.addEventListener("click", function () {
+        // Logging number of times clicked..
+        var result = document.getElementById("result");
+        result.innerHTML = "Clicked: " + clicked++ + " times.";
+      });
+    </script>
+  </body>
+</html>

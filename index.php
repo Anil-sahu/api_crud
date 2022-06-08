@@ -54,11 +54,29 @@ if (isset($_POST['submited'])) {
   $email = $_POST['email'];
   $branch = $_POST['branch'];
   $fee = $_POST['fee'];
+  if ($name != "") {
+?>
+    <script>
+      alert("Please enter student name");
+      return;
+    </script>
+
+  <?php
+  }
+  if (strlen($number) != 10) {
+  ?>
+    <script>
+      alert("PLease enter valid mobile number");
+      return;
+    </script>
+  <?php
+  }
+
   $insertQuery = "insert into student(name,mobile,email,branch,fee) value('$name','$mobile','$email','$branch','$fee')";
   $query = mysqli_query($connection, $insertQuery);
 
   if ($query) {
-?>
+  ?>
     <script>
       alert("Data inserted successfull");
       window.location.href = "pages/view.php";
