@@ -1,264 +1,121 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <style>
-      tr {
-        color: blue;
-        background-color: aquamarine;
-      }
-    </style>
-  </head>
-  <body>
-    <p></p>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CRUD</title>
+  <link rel="stylesheet" href="style/style.css" />
 
-    <form action="">
-      <input type="text" id="name" />
-      <input type="text" id="mobile" />
-      <input type="text" id="email" />
-      <input type="text" id="branch" />
-      <input type="text" id="fee" />
-      <input type="submit" id="std" />
-    </form>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
 
-    <button id="Save" onclick="show()">add</button>
-    <table id="tvalue"></table>
+<body>
+  <nav class="navebar">
+    <div class="brand">CRUD</div>
+    <div class="menu">
+      <ul class="all-list">
+        <li><a href="index.php" id="active">Home</a></li>
 
-    <script>
-      var table = document.createElement("table");
-      var tr = document.createElement("tr");
-      var array = ["id", "name", "mobile", "email", "branch", "fee", "Action"];
+        <li><a href="pages/view.php">View</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    <!-- name,email, mobile,branch,fees,gender -->
+    <div class="container">
+      <div class="box-heading">
+        <h1 style="color:#68f1b8;">Welcome</h1>
+        <hr>
 
-      for (var j = 0; j < array.length; j++) {
-        var th = document.createElement("th"); //column
-        var text = document.createTextNode(array[j]); //cell
-        th.appendChild(text);
-        tr.appendChild(th);
-      }
-      table.appendChild(tr);
+        <img src="image/std.svg" />
+        <hr>
+        <p>Fill all details of student and add </p>
+      </div>
 
-      for (var i = 0; i < array.length; i++) {
-        var tr = document.createElement("tr");
+      <form action="" method="POST">
+        <div class="subhead">Add student</div>
+        <hr>
+        <div>
+          <div class="input-field">
+            <i class="fa fa-user"></i>
+            <input type="text" placeholder="Enter student name.." name="name" class="field" id="name" required />
+          </div>
+        
+          <div class="input-field">
+            <i class="fa fa-mobile"></i>
+            <input type="mobile" placeholder="Enter mobile number.." name="mobile" class="field" id="mobile" required />
+          </div>
+          <div class="input-field">
+            <i class="fa fa-envelope"></i>
+            <input type="email" placeholder="Enter student email..." name="email" class="field" id="" required />
+          </div>
+        
+          <div class="input-field">
+            <i class="fa fa-puzzle-piece"></i>
+            <input type="text" placeholder="Enter student stream..." name="branch" class="field" id="branch" required />
+          </div>
+          <div class="warning" id="brnch"></div>
+          <div class="input-field">
+            <i class="fa fa-dollar"></i>
+            <input type="text" placeholder="Enter student fee.." name="fee" class="field" id="fee" />
+          </div>
+        
+        </div>
+        <input type="submit" id="btn" name="submited" value="Add">
 
-        var td1 = document.createElement("td");
-        var td2 = document.createElement("td");
-        var td3 = document.createElement("td");
-        var td4 = document.createElement("td");
-        var td5 = document.createElement("td");
-        var td6 = document.createElement("td");
-        var td7 = document.createElement("td");
+      </form>
 
-        var text1 = document.createTextNode("Text1");
-        var text2 = document.createTextNode("Text2");
-        var text3 = document.createTextNode("Text3");
-        var text4 = document.createTextNode("Text4");
-        var text5 = document.createTextNode("Text5");
-        var text6 = document.createTextNode("Text6");
-        var anchorTag = document.createElement("a").setAttribute("id", "click");
+    </div>
+  </main>
+</body>
 
-        td1.appendChild(text1);
-        td2.appendChild(text2);
-        td3.appendChild(text3);
-        td4.appendChild(text4);
-        td5.appendChild(text5);
-        td6.appendChild(anchorTag);
-        // td5.appendChild(text5);
-
-        tr.appendChild(td1);
-        tr.appendChild(td2);
-        tr.appendChild(td3);
-        tr.appendChild(td4);
-        tr.appendChild(td5);
-        tr.appendChild(td6);
-
-        table.appendChild(tr);
-      }
-      document.body.appendChild(table);
-    </script>
-    <!-- <script src="api/src/app.js"></script> -->
-    <script type="text/javascript">
-      // getStudent = () => {
-
-      //   const request = new XMLHttpRequest();
-      //   request.open("GET", "http://localhost:3000/api/students");
-      //   request.send();
-      //   request.onload = () => {
-      //     if (request.status == 200) {
-      //       var a = JSON.parse(request.responseText);
-      //       alert("datas are showing");
-      //       console.log(a[0][0]["name"]);
-      //     } else {
-      //       console.log(request.status);
-      //     }
-      //   };
-      // };
-      // getStudent();
-
-      // postStudent=()=>{
-      //    const request = new XMLHttpRequest();
-      //    request.open(type:"POST","http://localhost:300/api/student",
-      //    data:{
-
-      //    }
-      //    );
-      // }
-      // function postData() {
-      //   var data = {
-      //     name: document.getElementById("name").value,
-      //     mobile: document.getElementById("mobile").value,
-      //     email: document.getElementById("email").value,
-      //     branch: document.getElementById("branch").value,
-      //     fee: document.getElementById("fee").value,
-      //   };
-      //   document.getElementsByTagName("p").innerHTML = data;
-      //   const request = new XMLHttpRequest();
-      //   request.open("POST", "http://localhost:3000/api/student");
-      //   request.send(data);
-      //   alert("data");
-      //   request.onlaod = function () {
-      //     if (this.status == 200) {
-      //       var a = request.send(data);
-      //       console.log("post success", a);
-      //     } else {
-      //       console.log("Error");
-      //       reject({
-      //         status: this.status,
-      //         statusText: request.status,
-      //       });
-      //     }
-      //   };
-      // }
-
-      $(document).ready(function () {
-        $("#btn").click(function () {
-          alert("Handler for .click() called.");
-          $.ajax({
-            type: "POST",
-            url: "http://localhost:3000/api/student",
-            data: {
-              name: document.getElementById("name").value,
-              mobile: document.getElementById("mobile").value,
-              email: document.getElementById("email").value,
-              branch: document.getElementById("branch").value,
-              fee: document.getElementById("fee").value,
-            },
-            dataType: "aplication/json",
-            success: function (responseText) {
-              console.log(responseText.status);
-            },
-            error: function (error) {
-              alert(error.status);
-            },
-          });
-        });
-      });
-
-      deletStudent = (id) => {
-        // const request = new XMLHttpRequest();
-        // request.open("DELETE", "http://localhost:3000/api/student/8");
-        // request.send();
-        // request.onload = () => {
-        //   if (request.status == 200) {
-        //     var a = JSON.parse(request.responseText);
-        //     console.log(a);
-        //   } else {
-        //     console.log(request.status);
-        //   }
-        // };
-      };
-
-      // var id =1;
-      // updataStudent=(id)=>{
-      //   const request = XMLHttpRequest();
-      // request.open("POST","http://api/student/"+id);
-      // request.send();
-      // request.onlaod=(data)=>{
-      // var stddata=JSON.parse(re)
-      // }
-      // }
-    </script>
-  </body>
 </html>
+<!-- <?php
+include 'db/dbcon.php';
+if (isset($_POST['submited'])) {
+  $name = $_POST['name'];
+  $mobile = $_POST['mobile'];
+  $email = $_POST['email'];
+  $branch = $_POST['branch'];
+  $fee = $_POST['fee'];
+  if ($name != "") {
+?>
+    <script>
+      alert("Please enter student name");
+      return;
+    </script> -->
 <!-- 
-<script>
-  function table(id, name, mobile, email, branch, fee) {
-    var tr = "<tr>";
-    // create a new textInputBox
-
-    // create a new Label Text
-    tr += "<td>" + id + "</td>";
-    tr += "<td>" + name + "</td>";
-    tr += "<td>" + mobile + "</td>";
-    tr += "<td>" + email + "</td>";
-    tr += "<td>" + branch + "</td>";
-    tr += "<td>" + fee + "</td>";
-    tr += "</tr>";
-    return tr;
+  <?php
   }
-</script>
- -->
+  if (strlen($number) != 10) {
+  ?>
+    <script>
+      alert("PLease enter valid mobile number");
+      return;
+    </script>
+  <?php
+  }
 
-<!-- 
+  $insertQuery = "insert into student(name,mobile,email,branch,fee) value('$name','$mobile','$email','$branch','$fee')";
+  $query = mysqli_query($connection, $insertQuery);
 
+  if ($query) {
+  ?>
+    <script>
+      alert("Data inserted successfull");
+      window.location.href = "pages/view.php";
+    </script>
 
-$(document).ready(function () {
-  var tbvalue = document.getElementById("tvalue");
+  <?php
+  } else {
+  ?>
 
-  $.ajax({
-    type: "GET",
-    url: "http://localhost:3000/api",
+    <Script>
+      alert("Data not inserted");
+    </Script>
+<?php
+  }
+}
 
-    success: function (data, textStatus, xhr) {
-      var x = tbvalue.insertRow();
-      x.insertCell(0);
-      tbvalue.rows[0].cells[0].innerHTML = "id";
-      tbvalue.rows[0].cells[0].style.background = "red";
-      x.insertCell(1);
-      tbvalue.rows[0].cells[1].innerHTML = "name";
-      x.insertCell(2);
-      tbvalue.rows[0].cells[2].innerHTML = "mobile";
-      x.insertCell(3);
-      tbvalue.rows[0].cells[3].innerHTML = "email";
-
-      x.insertCell(4);
-      tbvalue.rows[0].cells[4].innerHTML = "branch";
-      x.insertCell(5);
-      tbvalue.rows[0].cells[5].innerHTML = "fees";
-
-      for (var j = 0; j < data[0].length; j++) {
-        // console.log(data[0][j]["mobile"]);
-        // var x = tbvalue.insertRow();
-        // x.insertCell(0);
-        // tbvalue.rows[j + 1].cells[0].innerHTML = data[0][j]["id"];
-        // tbvalue.rows[j + 1].cells[0].style.background = "red";
-        // x.insertCell(1);
-        // tbvalue.rows[j + 1].cells[1].innerHTML = data[0][j]["name"];
-        // x.insertCell(2);
-        // tbvalue.rows[j + 1].cells[2].innerHTML = data[0][j]["mobile"];
-        // x.insertCell(3);
-        // tbvalue.rows[j + 1].cells[3].innerHTML = data[0][j]["email"];
-        // x.insertCell(4);
-        // tbvalue.rows[j + 1].cells[4].innerHTML = data[0][j]["branch"];
-        // x.insertCell(5);
-        // tbvalue.rows[j + 1].cells[5].innerHTML = data[0][j]["fee"];
-        table(
-          data[0][j]["id"],
-          data[0][j]["name"],
-          data[0][j]["mobile"],
-          data[0][j]["email"],
-          data[0][j]["branch"],
-          data[0][j]["fee"]
-        );
-      }
-    },
-
-    error: function (xhr, textStatus, errorThrown) {
-      console.log("Error in Operation");
-    },
-  });
-}); --> -->
+?> -->
