@@ -4,8 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CRUD</title>
-    <link rel="stylesheet" href="style/style.css" />
-
+    <link rel="stylesheet" href="../style/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -18,36 +17,34 @@
       <div class="brand">CRUD</div>
       <div class="menu">
         <ul class="all-list">
-          <li><a href="index.html" id="active">Home</a></li>
+          <li><a href="../index.html" class="active">Home</a></li>
 
-          <li><a href="pages/view.html">View</a></li>
+          <li><a href="view.html">View</a></li>
         </ul>
       </div>
     </nav>
     <main>
-      <!-- name,email, mobile,branch,fees,gender -->
+      <span id="sp"></span>
+
       <div class="container">
         <div class="box-heading">
-          <h1 style="color: #68f1b8">Welcome</h1>
+          <h1 style="color: #03f892">Update</h1>
           <hr />
-
-          <img src="image/std.svg" />
+          <img src="../image/std.svg" style="width: 70%" />
           <hr />
-          <p>Fill all details of student and add</p>
+          <p>Correct student details and press update button</p>
         </div>
 
-        <form>
-          <div class="subhead">Add student</div>
-          <hr />
+        <form action="" method="POST">
+          <div class="subhead">Update info</div>
+          <hr style="margin-bottom: 20px; border: 1px solid #03f892" />
           <div>
             <div class="input-field">
               <i class="fa fa-user"></i>
               <input
-                type="text"
                 placeholder="Enter student name.."
-                name="name"
                 class="field"
-                id="name"
+                id="stdname"
                 required
               />
             </div>
@@ -59,7 +56,7 @@
                 placeholder="Enter mobile number.."
                 name="mobile"
                 class="field"
-                id="mobile"
+                id="stdmobile"
                 required
               />
             </div>
@@ -70,7 +67,7 @@
                 placeholder="Enter student email..."
                 name="email"
                 class="field"
-                id="email"
+                id="stdemail"
                 required
               />
             </div>
@@ -82,7 +79,7 @@
                 placeholder="Enter student stream..."
                 name="branch"
                 class="field"
-                id="branch"
+                id="stdbranch"
                 required
               />
             </div>
@@ -94,38 +91,32 @@
                 placeholder="Enter student fee.."
                 name="fee"
                 class="field"
-                id="fee"
+                id="stdfee"
               />
             </div>
           </div>
-          <button type="button" id="btn" name="submited">Add</button>
+          <button id="btn" name="submited" value="Update" onClick="onEdit()">
+            update
+          </button>
         </form>
       </div>
     </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../method/get.js"></script>
+    <script>
+      getStudentById = function (id) {
+        const request = new XMLHttpRequest();
+        request.open("GET", "http://localhost:3000/api/v1/student/" + id, true);
 
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $("#btn").click(function () {
-          $.ajax({
-            type: "POST",
-            url: "http://localhost:3000/api/v1/student",
-            data: {
-              name: document.getElementById("name").value,
-              mobile: document.getElementById("mobile").value,
-              email: document.getElementById("email").value,
-              branch: document.getElementById("branch").value,
-              fee: document.getElementById("fee").value,
-            },
-            dataType: "application/json",
-            success: function (responseText) {
-              alert("Student added successfully");
-            },
-            error: function (error) {
-              alert(error.status);
-            },
-          });
-        });
-      });
+        request.onload = function () {
+          if (request.status == 200) {
+            window.location.href = "../pages/edit.html";
+          } else {
+            console.log(request.status);
+          }
+        };
+        request.send();
+      };
     </script>
   </body>
 </html>

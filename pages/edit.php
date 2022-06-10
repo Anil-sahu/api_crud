@@ -71,20 +71,20 @@
         ?>
         <div class="input-field">
           <i class="fa fa-user"></i>
-          <input type="text" placeholder="Enter student name" name="name" class="field" id="name" value="<?php echo $result['name']; ?>" />
+          <input type="text" placeholder="Enter student name" name="name" class="field" id="stdname" value="<?php echo $result['name']; ?>" />
         </div>
         <div class="input-field">
           <i class="fa fa-mobile"></i>
-          <input type="mobile" placeholder="Enter student name" name="mobile" class="field" id="mobile" value="<?php echo $result['mobile']; ?>" />
+          <input type="mobile" placeholder="Enter student name" name="mobile" class="field" id="stdmobile" value="<?php echo $result['mobile']; ?>" />
         </div>
         <div class="input-field">
           <i class="fa fa-envelope"></i>
-          <input type="email" placeholder="Enter student name" name="email" class="field" id="" value="<?php echo $result['email']; ?>" />
+          <input type="email" placeholder="Enter student name" name="email" class="field" id="stdemail" value="<?php echo $result['email']; ?>" />
         </div>
 
         <div class="input-field">
           <i class="fa fa-puzzle-piece"></i>
-          <input type="text" placeholder="Enter branch name" name="branch" class="field" id="branch" value="<?php echo $result['branch']; ?>" />
+          <input type="text" placeholder="Enter branch name" name="branch" class="field" id="stdbranch" value="<?php echo $result['branch']; ?>" />
         </div>
 
         <div class="input-field">
@@ -98,6 +98,34 @@
 
     </div>
   </main>
+  <script>
+    getStudentById = function(id) {
+      const request = new XMLHttpRequest();
+      request.open("GET", "http://localhost:3000/api/v1/student/" + id, true);
+
+      request.onload = function() {
+        if (request.status == 200) {
+          var data = JSON.parse(this.responseText);
+          console.log(data);
+          // console.log(data[0].name);
+
+          document.getElementById('stdname').value = data[0].name;
+          document.getElementById("stdmobile").value = data[0].mobile;
+          document.getElementById("sydemail").value = data[0].email;
+          document.getElementById("stdbranch").value = data[0].branch;
+          document.getElementById("stdfee").value = data[0].fee;
+          document.getElementById("sp").value = data[0].id;
+          // window.location.href = "../pages/edit.html";
+
+        } else {
+          console.log(request.status);
+        }
+      };
+
+      request.send();
+    };
+    getStudentById(1)
+  </script>
 </body>
 
 </html>

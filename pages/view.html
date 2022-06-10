@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CRUD</title>
+  <link rel="stylesheet" href="../style/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box;}
+    
+    
+    /* The popup form - hidden by default */
+    .form-popup {
+      display: none;
+     
+      position: absolute;
+     top:0;
+      
+      background-color: #68f1b8;
+      z-index: 9;
+      width: 100%;
+      height: 100%;
+ 
+     
+    }
+    
+    /* Add styles to the form container */
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      width: fit-content;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0);
+      margin: 40px auto;
+    }
+    
+    /* Full-width input fields */
+    /* .form-container input[type=text], .form-container input[type=password] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      border: none;
+      background: #f1f1f1;
+    } */
+    
+    /* When the inputs get focus, do something */
+    /* .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+    } */
+    
+    /* Set a style for the submit/login button */
+    .form-container .btn {
+      background-color: #04AA6D;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom:10px;
+      opacity: 0.8;
+    }
+    
+    /* Add a red background color to the cancel button */
+    .form-container .cancel {
+      background-color: red;
+    }
+    
+    /* Add some hover effects to buttons */
+    .form-container .btn:hover, .open-button:hover {
+      opacity: 1;
+    }
+    </style>
+</head>
+
+<body>
+  <nav class="navebar">
+    <div class="brand">CRUD</div>
+    <div class="menu">
+      <ul class="all-list">
+        <li><a href="../index.html">Home</a></li>
+
+        <li><a href="view.html" id="active">View</a></li>
+      </ul>
+    </div>
+  </nav>
+  <br /><br /><br />
+  <main>
+    <table id="customers">
+
+      <table class="list" id="employeeList">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>mobile</th>
+            <th>email</th>
+            <th>branch</th>
+            <th>fee</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="form-popup" id="myForm">
+        <form class="form-container">
+          <div class="container">
+            <div class="box-heading">
+              <h4 style="color: #68f1b8">Update</h4>
+              <hr />
+              <img src="../image/std.svg" style="width: 70%" />
+              <hr />
+              <p>Correct student details and press update button</p>
+            </div>
+    
+            <div>
+              <div class="subhead">Update info</div>
+              <hr style="margin-bottom: 20px; border: 1px solid #03f892" />
+              <div>
+                <div class="input-field">
+                  <i class="fa fa-id-card"></i>
+                  <input
+                    placeholder="Enter student name.."
+                    class="field"
+                    id="stdid"
+                 readonly
+                 
+                  />
+                 
+                </div>
+                <div class="input-field">
+                  <i class="fa fa-user"></i>
+                  <input
+                    placeholder="Enter student name.."
+                    class="field"
+                    id="stdname"
+                    required
+                  />
+                </div>
+    
+                <div class="input-field">
+                  <i class="fa fa-mobile"></i>
+                  <input
+                    type="mobile"
+                    placeholder="Enter mobile number.."
+                    name="mobile"
+                    class="field"
+                    id="stdmobile"
+                    required
+                  />
+                </div>
+                <div class="input-field">
+                  <i class="fa fa-envelope"></i>
+                  <input
+                    type="email"
+                    placeholder="Enter student email..."
+                    name="email"
+                    class="field"
+                    id="stdemail"
+                    required
+                  />
+                </div>
+    
+                <div class="input-field">
+                  <i class="fa fa-puzzle-piece"></i>
+                  <input
+                    type="text"
+                    placeholder="Enter student stream..."
+                    name="branch"
+                    class="field"
+                    id="stdbranch"
+                    required
+                  />
+                </div>
+                <div class="warning" id="brnch"></div>
+                <div class="input-field">
+                  <i class="fa fa-dollar"></i>
+                  <input
+                    type="text"
+                    placeholder="Enter student fee.."
+                    name="fee"
+                    class="field"
+                    id="stdfee"
+                  />
+                </div>
+              </div>
+              <button type="button" id="btn" name="submited"onclick="onEdit(document.getElementById('stdid').value)"  >
+                update
+              </button>
+            </div>
+          </div>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form></div>
+  </main>
+
+  
+  <script src="../method/delete.js"></script>
+  <script src="../method/update.js"></script>
+  <script src="../method/get.js"></script>
+  <script>
+    
+</script>
+  </script>
+</body>
+
+</html>
