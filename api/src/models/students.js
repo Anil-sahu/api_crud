@@ -1,5 +1,3 @@
-// export default student =
-//     { sdname: "Anil", mobile: "32423543534", email: "email@gmail.com", branch: "cse", fee: "45345" };
 
 
 

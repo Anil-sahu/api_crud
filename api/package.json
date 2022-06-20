@@ -2,10 +2,11 @@
   "name": "api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+   
+    "start": "nodemon app.js",
+    "test": "mocha *.test.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +17,9 @@
     "mysql": "^2.18.1"
   },
   "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.0.0",
     "nodemon": "^2.0.16"
   }
 }

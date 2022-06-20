@@ -33,4 +33,6 @@ const studentRoute = require("./src/route/student.route");
 
 app.use("/api/v1/student", studentRoute);
 
-app.listen(port, () => console.log("My server is running at port:", port));
+const server = app.listen(port, () => console.log("My server is running at port:", port));
+
+module.exports = server;
