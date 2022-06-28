@@ -48,7 +48,8 @@ insertNewRecord = function (data) {
 
 function openForm(id) {
     document.getElementById("myForm").style.display = "block";
-    getStudentById(id)
+    getStudentById(id);
+    document.getElementById("employeeList").style.display = "none";
 }
 
 getStudentById = function (id) {

@@ -36,7 +36,7 @@
           <p>Fill all details of student and add</p>
         </div>
 
-        <form>
+        <form action="">
           <div class="subhead">Add student</div>
           <hr />
           <div>
@@ -118,7 +118,10 @@
             },
             dataType: "application/json",
             success: function (responseText) {
-              alert("Student added successfully");
+              window.location.reload();
+              if(responseText.status==200)
+              alert("Student added successfully",this.responseText);
+              window.location.href="pages/view.html";
             },
             error: function (error) {
               alert(error.status);

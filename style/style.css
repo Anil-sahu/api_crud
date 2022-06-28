@@ -141,7 +141,7 @@ body {
     font-weight: bold;
     width: fit-content;
     padding: 8px 15px;
-    margin: 10px auto;
+    margin: 20px 40%;
     border-radius: 8px;
     box-shadow: 1px 1px 3px rgb(19, 18, 18);
     border: 1px solid #F0F0F0
@@ -262,6 +262,8 @@ td a {
     padding: 5px;
     border: 1px solid #002838;
     cursor: pointer;
+    border-radius: 8px;
+    margin: 5px;
 }
 
 .edit:hover {
@@ -288,10 +290,12 @@ td a {
     padding: 10px 20px
 }
 
+
 @media (max-width:500px) {
 
     #btn {
         font-size: 14px;
+        margin: 20px 40%;
     }
 
     .box-heading img {
@@ -306,6 +310,7 @@ td a {
     .box-heading {
         border-bottom-left-radius: 0px;
         border-top-right-radius: 8px;
+        display: none;
     }
 
     .input-field {
@@ -334,14 +339,15 @@ td a {
     }
 
     .container {
-
         margin: 20px auto;
         width: 90%;
         flex-direction: column;
 
-
     }
-
+.list{
+    width: 90%;
+ 
+}
     .all-list li a {
 
         padding: 8px 8px;
@@ -350,18 +356,16 @@ td a {
     }
 
     .brand {
-
         font-size: 16px;
-
     }
 
 
     #customers td,
     #customers th {
-
         padding: 3px 5px;
         font-size: 12px;
-        width: fit-content;
+        width: 100px;
+       overflow-wrap: break-word;
 
     }
 

@@ -5,9 +5,13 @@ onDelete = (id) => {
     request.onload = () => {
         if (request.status == 200) {
             var a = JSON.parse(request.responseText);
+            alert("Delelte Succesfully");
+            window.location.reload();
             console.log(a);
         } else {
             console.log(request.status);
         }
     };
 };
+
+
