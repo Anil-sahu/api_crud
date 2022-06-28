@@ -1,1 +1,0 @@
-IN this pages all CRUD operation is done through php and mysql query
